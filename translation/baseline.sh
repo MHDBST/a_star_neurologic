@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PYTHONPATH=/home/ximinglu/a_star_neurologic
+# export PYTHONPATH=/home/ximinglu/a_star_neurologic
 
 DEVICES=$1
 OUTPUT_FILE=$2
