@@ -60,7 +60,8 @@ def main():
     print(args)
 
     tokenizer = MarianTokenizer.from_pretrained(args.model_name)
-    model = MarianMTModel.from_pretrained(args.model_name)
+    with torch.no_grad():
+        model = MarianMTModel.from_pretrained(args.model_name)
 
     torch.cuda.empty_cache()
     model.eval()
@@ -72,7 +73,7 @@ def main():
 
     def read_constraints(file_name):
         cons_list = []
-        with open(file_name, 'r') as f:
+        with open(file_name, 'r', encoding="utf-8") as f:
             for line in f:
                 cons = []
                 for concept in json.loads(line):
